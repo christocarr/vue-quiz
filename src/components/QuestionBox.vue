@@ -2,7 +2,7 @@
   <div class="question-wrapper">
     <b-jumbotron>
       <template slot="lead">
-        Some question
+        {{ currentQuestion.question }}
       </template>
       <hr>
       <p>
@@ -13,3 +13,11 @@
     </b-jumbotron>
   </div>
 </template>
+
+<script>
+export default {
+  props: {
+    currentQuestion: Object
+  }
+}
+</script>
