@@ -5,7 +5,10 @@
     <b-container class="bv-example-row">
       <b-row>
         <b-col sm="6" offset="3">
-          <QuestionBox :currentQuestion="questions[index]" />
+          <QuestionBox 
+            :currentQuestion="questions[index]" 
+            :nextQuestion="next"
+          />
         </b-col>
       </b-row>
     </b-container>
@@ -13,32 +16,37 @@
 </template>
 
 <script>
-import Header from "./components/Header.vue";
-import QuestionBox from "./components/QuestionBox.vue";
+import Header from './components/Header.vue';
+import QuestionBox from './components/QuestionBox.vue';
 
 export default {
-  name: "App",
+  name: 'App',
   components: {
     Header,
-    QuestionBox
+    QuestionBox,
   },
   data() {
     return {
       questions: [],
-      index: 0
+      index: 0,
     };
   },
+  methods: {
+    next() {
+      this.index++;
+    },
+  },
   mounted: function() {
-    fetch("https://opentdb.com/api.php?amount=10&category=9&type=multiple", {
-      method: "get"
+    fetch('https://opentdb.com/api.php?amount=10&category=9&type=multiple', {
+      method: 'get',
     })
-      .then(response => {
+      .then((response) => {
         return response.json();
       })
-      .then(data => {
+      .then((data) => {
         this.questions = data.results;
       });
-  }
+  },
 };
 </script>
 

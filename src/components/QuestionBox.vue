@@ -9,7 +9,7 @@
         List of answers
       </p>
       <b-button variant="primary">Submit</b-button>
-      <b-button variant="primary">Next</b-button>
+      <b-button @click="nextQuestion" variant="primary">Next</b-button>
     </b-jumbotron>
   </div>
 </template>
@@ -17,7 +17,8 @@
 <script>
 export default {
   props: {
-    currentQuestion: Object
+    currentQuestion: Object,
+    nextQuestion: Function
   }
 }
 </script>
