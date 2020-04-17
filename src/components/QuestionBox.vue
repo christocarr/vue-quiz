@@ -1,3 +1,15 @@
 <template>
-  <h1>Question Box</h1>
+  <div class="question-wrapper">
+    <b-jumbotron>
+      <template slot="lead">
+        Some question
+      </template>
+      <hr>
+      <p>
+        List of answers
+      </p>
+      <b-button variant="primary">Submit</b-button>
+      <b-button variant="primary">Next</b-button>
+    </b-jumbotron>
+  </div>
 </template>
