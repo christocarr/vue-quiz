@@ -15,7 +15,7 @@
           {{ answer }}
         </b-list-group-item>
       </b-list-group>
-      <b-button variant="primary">Submit</b-button>
+      <b-button variant="primary" @click="submitAnswer">Submit</b-button>
       <b-button @click="nextQuestion" variant="primary">Next</b-button>
     </b-jumbotron>
   </div>
@@ -27,10 +27,12 @@ export default {
   props: {
     currentQuestion: Object,
     nextQuestion: Function,
+    increment: Function
   },
   data() {
     return {
       selectedAnswer: null,
+      correctIndex: null,
       shuffledAnswers: [],
     };
   },
@@ -60,7 +62,15 @@ export default {
         this.currentQuestion.correct_answer,
       ];
       this.shuffledAnswers = _.shuffle(answers);
+      this.correctIndex = this.shuffledAnswers.indexOf(this.currentQuestion.correct_answer)
     },
+    submitAnswer() {
+      let isCorrect = false
+      if (this.selectedAnswer === this.correctIndex) {
+        isCorrect = true
+      }
+      this.increment(isCorrect)
+    }
   },
 };
 </script>
