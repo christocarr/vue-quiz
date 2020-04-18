@@ -45,3 +45,12 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+  .list-group {
+    margin-bottom: 1rem;
+  }
+  .btn {
+    margin: 0 0.5rem;
+  }
+</style>
