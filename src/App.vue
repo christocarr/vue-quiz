@@ -46,7 +46,6 @@ export default {
       if (isCorrenct) {
         this.numCorrect ++
       }
-      this.numTotal ++
     }
   },
   mounted: function() {
@@ -58,6 +57,7 @@ export default {
       })
       .then((data) => {
         this.questions = data.results;
+        this.numTotal = data.results.length
       });
   },
 };
