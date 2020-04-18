@@ -5,9 +5,11 @@
         {{ currentQuestion.question }}
       </template>
       <hr>
-      <p v-for="(answer, index) in answers" :key="index">
-        {{ answer }}
-      </p>
+      <b-list-group>
+        <b-list-group-item v-for="(answer, index) in answers" :key="index" >
+          {{ answer }}
+        </b-list-group-item>
+      </b-list-group>
       <b-button variant="primary">Submit</b-button>
       <b-button @click="nextQuestion" variant="primary">Next</b-button>
     </b-jumbotron>
