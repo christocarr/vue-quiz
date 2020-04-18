@@ -98,6 +98,12 @@ export default {
   margin: 0 0.5rem;
 }
 
+.btn:disabled {
+  background-color: lightgrey;
+  border: none;
+  cursor: default;
+}
+
 .selected-answer {
   background-color: lightblue;
 }
