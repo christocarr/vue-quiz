@@ -50,6 +50,11 @@ export default {
   .list-group {
     margin-bottom: 1rem;
   }
+  .list-group-item:hover {
+    cursor: pointer;
+    background-color: #7d9da8;
+    color: white;
+  }
   .btn {
     margin: 0 0.5rem;
   }
