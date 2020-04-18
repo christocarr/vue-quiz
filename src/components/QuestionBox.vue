@@ -10,7 +10,15 @@
           v-for="(answer, index) in shuffledAnswers"
           :key="index"
           @click="answerSelect(index)"
-          :class="[selectedAnswer === index ? 'selected-answer' : '']"
+          :class="[
+            !isAnswered && selectedAnswer === index
+              ? 'selected-answer'
+              : isAnswered && correctIndex === index
+              ? 'correct-answer'
+              : isAnswered && selectedAnswer === index && correctIndex !== index
+              ? 'incorrect-answer'
+              : '',
+          ]"
         >
           {{ answer }}
         </b-list-group-item>
