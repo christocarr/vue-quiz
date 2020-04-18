@@ -4,9 +4,13 @@
       <template slot="lead">
         {{ currentQuestion.question }}
       </template>
-      <hr>
+      <hr />
       <b-list-group>
-        <b-list-group-item v-for="(answer, index) in answers" :key="index" >
+        <b-list-group-item
+          v-for="(answer, index) in answers"
+          :key="index"
+          @click="answerSelect(index)"
+        >
           {{ answer }}
         </b-list-group-item>
       </b-list-group>
@@ -20,14 +24,24 @@
 export default {
   props: {
     currentQuestion: Object,
-    nextQuestion: Function
+    nextQuestion: Function,
+  },
+  data() {
+    return {
+      selectedAnswer: null,
+    };
   },
   computed: {
     answers() {
-      let answers = [...this.currentQuestion.incorrect_answers]
-      answers.push(this.currentQuestion.correct_answer)
-      return answers
-    }
-  }
-}
+      let answers = [...this.currentQuestion.incorrect_answers];
+      answers.push(this.currentQuestion.correct_answer);
+      return answers;
+    },
+  },
+  methods: {
+    answerSelect(index) {
+      this.selectedAnswer = index;
+    },
+  },
+};
 </script>
