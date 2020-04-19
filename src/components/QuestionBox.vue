@@ -21,7 +21,11 @@
         :disabled="selectedAnswer === null || isAnswered"
         >Submit</b-button
       >
-      <b-button @click="nextQuestion" variant="primary">Next</b-button>
+      <b-button 
+        @click="nextQuestion" 
+        variant="primary"
+        :disabled="isAnswered === false"
+        >Next</b-button>
     </b-jumbotron>
   </div>
 </template>
